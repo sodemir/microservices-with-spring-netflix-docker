@@ -1,4 +1,4 @@
- Some endpoints to check config server is working correctly:
+- Some endpoints to check config server is working correctly:
 
      localhost:8888/config/default : you should see the application.properties file in the config repository, as property source
 
@@ -11,6 +11,8 @@
      localhost:8888/producer-dev.properties : you should see the list of properties from (application-dev.properties + producer-dev.properties)
 
 
+- to create docker image : mvnw install dockerfile:build
+
  - to switch from git repository to local file repository use
 
     spring.profiles.active= native
@@ -19,3 +21,6 @@
  instead of
 
     spring.cloud.config.server.git.uri: https://github.com/spring-cloud-samples/config-repo
+
+
+ - good read : http://www.enriquerecarte.com/2017-08-04/spring-cloud-config-series-git-backend

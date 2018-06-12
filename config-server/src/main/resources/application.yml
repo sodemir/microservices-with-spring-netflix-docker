@@ -5,13 +5,13 @@ server:
 spring:
   application:
     name: config-server
-  profiles:
-    active: native
   cloud:
     config:
       server:
-        native:
-          searchLocations: classpath:config-repo/
+        git:
+          uri: https://github.com/sodemir/microservices-with-snd-config-repo
+#        native:
+#          searchLocations: classpath:config-repo/
 
 
 #actuators
