@@ -10,19 +10,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class RemotelyConfiguredController {
 
-    @Value("${message:default message}")
-    private String message;
+    @Value("${converter.property}")
+    private String converterProperty;
 
-    @Value("${something}")
-    private String something;
-
-    @RequestMapping("/message")
+    @RequestMapping("/converterProperty")
     String getMessage() {
-        return this.message;
-    }
-
-    @RequestMapping("/something")
-    String getSeomthing() {
-        return this.something;
+        return this.converterProperty;
     }
 }
