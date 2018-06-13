@@ -21,7 +21,7 @@
  instead of
 
     spring.cloud.config.server.git.uri: https://github.com/spring-cloud-samples/config-repo
-
+s
 
  - to run rabbitmq
 
