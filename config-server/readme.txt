@@ -24,3 +24,10 @@
 
 
  - good read : http://www.enriquerecarte.com/2017-08-04/spring-cloud-config-series-git-backend
+
+ - to configure auto refresh :
+
+   download and run rabbitmq image
+
+   docker pull rabbitmq:3-management
+   docker run --name some-rabbit -p 15672:15672 -p 5672:5672 rabbitmq:3-management

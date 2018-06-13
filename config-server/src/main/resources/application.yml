@@ -13,6 +13,12 @@ spring:
           searchPaths : config-repository
 #        native:
 #          searchLocations: classpath:config-repo/
+#rabbit-mq, used by cloud bus for auto refresh
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
 
 
 #actuators
@@ -22,13 +28,6 @@ management:
       sensitive:  false
       show-details: ALWAYS
 
-#rabbit-mq
-#spring:
-#  rabbitmq:
-#    host: localhost
-#    port: 5672
-#    username: guest
-#    password: guest
 
 endpoints:
   restart:
