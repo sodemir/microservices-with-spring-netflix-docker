@@ -32,6 +32,8 @@ s
 
   trigger manuel refresh : http --form POST :8888/monitor path=forex  (will refresh forex default properties)
 
+  to simulate github webhook : http --json POST :8888/monitor X-Github-Event:"push" commits:='[{"modified": ["configserver.yml"] }]'
+
 --------
  - good read : http://www.enriquerecarte.com/2017-08-04/spring-cloud-config-series-git-backend
 

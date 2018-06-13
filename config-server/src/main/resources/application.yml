@@ -23,6 +23,10 @@ spring:
 
 #actuators
 management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
   endpoint:
     health:
       sensitive:  false
