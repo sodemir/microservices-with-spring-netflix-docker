@@ -34,7 +34,7 @@ Spring Cloud provides a solution to detecting configuration changes in your appl
 spring-cloud-config-monitor: This library adds an endpoint to your application which understands webhooks from a few different Git server providers such as Github or Bitbucket. If you include this dependency, it will add a /monitor endpoint. You then just need to configure the webhook in the Git repository to point wherever this endpoint is deployed. Once this endpoint is called it will parse the payload to understand what has changed, and it will then use the next library to tell the client applications that there is a change in configuration, so they should refresh the application context. You can find out more information about this library in this blog post.
 spring-cloud-bus: This is a simple library that Spring provides to communicate global events to other applications through some message brokers. It’s mostly used for this use case, where you need to send an RefreshRemoteApplicationEvent event to all/some applications telling them that they should refresh their application context. It integrates with either RabbitMQ or Kafka as the message brokers.
 Let’s take a look at an architectural overview of the solution:
-
+s
 Standalone Config Setup With Refresh
 
 There are a few changes from the previous diagrams we were looking at:
