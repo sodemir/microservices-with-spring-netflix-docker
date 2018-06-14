@@ -10,6 +10,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class RemotelyConfiguredController {
 
+    @Value("${eureka.client.service-url.default-zone}")
+    private String eurekaUrl;
+
+    @RequestMapping("/eurekaUrl")
+    String getEurekaUrl() {
+        return this.eurekaUrl;
+    }
+
     @Value("${base.property1}")
     private String baseProperty1;
 

@@ -1,0 +1,25 @@
+spring:
+    h2:
+        console:
+            enabled: true
+    jpa:
+        show-sql: true
+    rabbitmq:
+        host: localhost
+        password: guest
+        port: 5672
+        username: guest
+endpoints:
+    shutdown:
+        enabled: true
+management:
+    endpoint:
+        health:
+            sensitive: false
+            show-details: ALWAYS
+        shutdown:
+            enabled: true
+    endpoints:
+        web:
+            exposure:
+                include: '*'
