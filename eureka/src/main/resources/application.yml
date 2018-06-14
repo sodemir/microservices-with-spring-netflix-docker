@@ -3,7 +3,7 @@ spring:
     name: netflix-eureka-naming-server
 
 server:
-  port: 8761
+  port: 9999
 
 
 eureka:
