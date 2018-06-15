@@ -1,13 +1,16 @@
 package microservices.spring.currencyconverter;
 
+import org.springframework.cloud.netflix.ribbon.RibbonClient;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import java.math.BigDecimal;
+import java.util.logging.Logger;
 
-@FeignClient(name="forex-service", fallback = FeignForexServiceProxy.ForexServiceProxyFallback.class)
+@FeignClient(name="forex", fallback = FeignForexServiceProxy.ForexServiceProxyFallback.class)
+@RibbonClient(name="forex")
 public interface FeignForexServiceProxy {
 
     @GetMapping("/exchange-rate/from/{from}/to/{to}")

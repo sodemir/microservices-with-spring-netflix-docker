@@ -20,9 +20,3 @@ management:
             exposure:
                 include: '*'
 
-
-forex-service:
-  ribbon:
-    listOfServers:
-      -localhost:8000
-      -localhost:8001

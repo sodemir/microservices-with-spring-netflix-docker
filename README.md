@@ -32,3 +32,7 @@ Template project with spring boot, eureka, zuul, spring config server, docker
 
 
    
+
+resources :
+ - http://www.springboottutorial.com/creating-microservices-with-spring-boot-part-1-getting-started
+ -
