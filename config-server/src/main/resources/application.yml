@@ -42,9 +42,15 @@ endpoints:
     enabled: true
 
 
-#localde config server çalıştır ve iki servisin de refresh old test et
-#
+#config refresh işinin çalıştıgından emin ol
 #sonrasında, config-server docker image haline getirirken, mvn plugin hata veriyor, onu aşman lazım
+
+aşsan ii olur. yoksa docker ip'leri işin içine girince hata veriyor
+gatta, hemen ardından, container da run eden bi yapı olsa ii olur.
+
+gerçi, sürekli develop edilen bişeyse, docker container içinden run etmek mantıklı degil. docker cont. daha çok kullanılan servisler için olması mantıklı
+
+
 #
 #daha sonra, readme düzenlemeleri var
 
