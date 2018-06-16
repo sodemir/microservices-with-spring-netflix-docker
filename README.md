@@ -1,11 +1,66 @@
 # microservices-with-spring-netflix-docker
-Template project with spring boot, eureka, zuul, spring config server, docker
 
-1. This project is coded referencing this link : http://www.springboottutorial.com/creating-microservices-with-spring-boot-part-1-getting-started
-2. It is a spring boot, microservice, feign, ribbon, eureka, zuul, spring cloud config sample. Using H2 as database.
+Template project demonstrating microservices arhictecture with spring boot, spring cloud, eureka, zuul, spring config server, hystrix, ribbon, feign and docker. 
+
+There are **5 microservices** included in this project:
+
+ 1. Forex Service - Returns the exchange values between monetary units. See forex/readme.md for further details.
+ 2. Currency Converter Service - Returns the conversion amount between two monetary units. Calls Forex Service to get the exchange value. See currency-converter/readme.md for further details.  
+ 3. Spring Cloud Config Server - Being used to centralize the configuration of Forex and Currency-Converter services. See config-server/readme.md for further details.
+   _config-repository_ folder is for keeping configuration files of these two microservices.  
+ 4. Eureka Server - Being used as service registry. (The config server keeps the url of eureka, other services see eureka through config server, not vice versa. So, config-server urls are hardcoded)
+ 5. Zuul - Gateway service
+
+**How to install and run**
+
+ - Clone the project.
+ - Create image files for all services by either running the mvn docker plugins or using docker build.
+ - You need a RabbitMQ service for configuration auto refresh
+
+        docker pull rabbitmq:3-management   
+        docker run --name some-rabbit -p 15672:15672 -p 5672:5672 rabbitmq:3-management
+        access rabbitmq dashboard: http://localhost:15672/#/
+  
+ - Run the services in this order : rabbitmq, config server, eureka, forex/currency-converter 
+ - To check all main flow is working correctly, go to 
+   
+        {currency converter service ip:port}/currency-converter/from/USD/to/EUR/quantity/100  
+   
+        {
+        "id": 10001,
+        "from": "USD",
+        "to": "EUR",
+        "conversionMultiple": 0.9,
+        "quantity": 100,
+        "totalCalculatedAmount": 90,
+        "port": 8000
+        }
+
+**What id does**
+
+ When you run all services, firts of all, Forex and Converter services fetch the configurations from the config server. 
+ Among them is the eureka server address. Both will connect to the Eureka and register themselves.
+ 
+ Then, when you call the mentioned conversion endpoint of the converter service, it will ask Eureka the Forex service address, call it and render the result.  
+ 
+
+
+**Docker**
+
+All project pom files have docker maven plugins, configured to create images for each microservice. All services have seperate dockerfiles.
+
+To create a docker image for a microservice, run _mvnw install dockerfile:build_
+  
+**Missing**  
+
+1. As of now, high availability, resilience, fault tolerance, service orchestration aspects of the are lacking. Require enhancements on these topics.
+
+    Never the less, you can run multiple instances of all services and system works properly. This gives some availability and resiliance to some degree. 
+Also, calls between converter and forex has fault tolerance; if forex is down, the converter will use cached data instead.
+
+2.  
+1. Start of this project is this link : http://www.springboottutorial.com/creating-microservices-with-spring-boot-part-1-getting-started
 3. Forex microservice is returning conversion rates. Currency-converter microservice is returning actual money amount, calling Forex service during the process
-4. Feing is used to call forex rest service
-5. Ribbon is used for client-side load balancing. Forex service is load balanced, while being called from currency-converter.
 6. Eureka is used as service registry. It is working as a standalone service. 
    Forex and Converter services are registered to Eureka, so that, they can be discovered without depending on their actual ip and port numbers.
    When Eureka is used, the caller needs to know the name of the service. Eureka routes to the actual ip and ports.
@@ -33,6 +88,12 @@ Template project with spring boot, eureka, zuul, spring config server, docker
 
    
 
-resources :
+some resources :
+ - spring.io/guides
  - http://www.springboottutorial.com/creating-microservices-with-spring-boot-part-1-getting-started
- -
+ - dzone.com/articles/buiding-microservice-using-spring-boot-and-docker
+ - https://dzone.com/articles/circuit-breaker-fallback-and-load-balancing-with-n
+ - https://spencer.gibb.us/blog/2015/09/24/spring-cloud-config-push-notifications/
+ - http://www.baeldung.com/spring-cloud-configuration
+ - http://www.enriquerecarte.com/2017-08-04/spring-cloud-config-series-git-backend
+ - http://www.baeldung.com/spring-cloud-netflix-hystrix

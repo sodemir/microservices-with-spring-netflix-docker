@@ -42,11 +42,13 @@ endpoints:
     enabled: true
 
 
-#rabbit merkeze taşıdım.
 #localde config server çalıştır ve iki servisin de refresh old test et
 #
 #sonrasında, config-server docker image haline getirirken, mvn plugin hata veriyor, onu aşman lazım
 #
 #daha sonra, readme düzenlemeleri var
-#
+
+# make sure that multiple config servers and eureka can be run
+
+
 #sonra da, zuul tutorial ile devam
