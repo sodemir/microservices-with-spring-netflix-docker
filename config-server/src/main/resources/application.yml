@@ -2,6 +2,9 @@
 server:
   port: 8888
 
+docker:
+  ip: 172.17.0.1
+
 spring:
   application:
     name: config-server
@@ -13,6 +16,7 @@ spring:
           searchPaths : config-repository
 #        native:
 #          searchLocations: classpath:config-repo/
+
 #rabbit-mq, used by cloud bus for auto refresh
   rabbitmq:
     host: localhost
@@ -36,3 +40,13 @@ management:
 endpoints:
   restart:
     enabled: true
+
+
+#rabbit merkeze taşıdım.
+#localde config server çalıştır ve iki servisin de refresh old test et
+#
+#sonrasında, config-server docker image haline getirirken, mvn plugin hata veriyor, onu aşman lazım
+#
+#daha sonra, readme düzenlemeleri var
+#
+#sonra da, zuul tutorial ile devam
