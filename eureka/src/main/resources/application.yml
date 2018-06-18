@@ -1,18 +1,52 @@
+#spring:
+#  application:
+#    name: netflix-eureka-naming-server
+
+---
 spring:
+  profiles: eureka1
   application:
-    name: netflix-eureka-naming-server
+    name: eureka1
+
+server:
+  port: 9998
+
+eureka:
+  instance:
+    hostname: eureka1
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:9999/eureka/
+
+---
+spring:
+  profiles: eureka2
+  application:
+    name: eureka2
 
 server:
   port: 9999
-
 
 eureka:
   instance:
     hostname: localhost
   client:
     serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
-    register-with-eureka: false
-    fetch-registry: false
-    healthcheck:
-      enabled: true
+      defaultZone: http://localhost:9998/eureka/
+
+#
+#eureka:
+#  instance:
+#    hostname: localhost
+#  client:
+#    serviceUrl:
+#      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+##    register-with-eureka: false
+##    fetch-registry: false
+##    healthcheck:
+##      enabled: true
+#
+#
+#bu sunucu uygulamasından 2 tane create edilecek. peer adresini bilmesi gerekiyor.
+#peer adresi dışardan run edilirken verilemk zorunda, başka olamaz.
+#öncelikle, peer adres nasıl set ediliyor ona bakalım

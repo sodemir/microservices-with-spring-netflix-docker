@@ -2,9 +2,6 @@
 server:
   port: 8888
 
-docker:
-  ip: 172.17.0.1
-
 spring:
   application:
     name: config-server
@@ -17,12 +14,13 @@ spring:
 #        native:
 #          searchLocations: classpath:config-repo/
 
+
 #rabbit-mq, used by cloud bus for auto refresh
-  rabbitmq:
-    host: localhost
-    port: 5672
-    username: guest
-    password: guest
+rabbitmq:
+   host: rabbitmq
+   port: 5672
+   username: guest
+   password: guest
 
 
 #actuators
@@ -42,19 +40,3 @@ endpoints:
     enabled: true
 
 
-#config refresh işinin çalıştıgından emin ol
-#sonrasında, config-server docker image haline getirirken, mvn plugin hata veriyor, onu aşman lazım
-
-aşsan ii olur. yoksa docker ip'leri işin içine girince hata veriyor
-gatta, hemen ardından, container da run eden bi yapı olsa ii olur.
-
-gerçi, sürekli develop edilen bişeyse, docker container içinden run etmek mantıklı degil. docker cont. daha çok kullanılan servisler için olması mantıklı
-
-
-#
-#daha sonra, readme düzenlemeleri var
-
-# make sure that multiple config servers and eureka can be run
-
-
-#sonra da, zuul tutorial ile devam
