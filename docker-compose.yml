@@ -1,0 +1,51 @@
+version: '3'
+
+services:
+
+  configserver:
+    build:
+      context: ./
+      dockerfile: dockerfile-config-server
+    image: mc-sample/config-server:latest
+    ports:
+      - "8888:8888"
+    depends_on:
+      - "rabbitmq"
+    networks:
+      - mc-sample-network
+
+  eureka1:
+    build:
+      context: ./
+      dockerfile: dockerfile-eureka
+    image: mc-sample/eureka:latest
+    ports:
+      - "9998:9999"
+    networks:
+      - mc-sample-network
+
+  eureka2:
+    build:
+      context: ./
+      dockerfile: dockerfile-eureka
+    image: mc-sample/eureka:latest
+    ports:
+      - "9998:9999"
+    networks:
+      - mc-sample-network
+
+  rabbitmq:
+    container_name: rabbit-for-microservices-sample
+    build:
+      context: ./
+      dockerfile: dockerfile-rabbitmq
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    networks:
+      - mc-sample-network
+
+
+networks:
+  mc-sample-network:
