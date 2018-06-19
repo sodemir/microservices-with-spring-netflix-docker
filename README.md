@@ -84,7 +84,8 @@ _note : All project pom files include docker maven plugin developed by spotify, 
   
 **Missing**  
 
-- Can't run multiple Config Servers. As of now, it is not supported in Spring Cloud out-of-box. Support is currently under development.
+ - Zuul
+ - Can't run multiple Config Servers. As of now, it is not supported in Spring Cloud out-of-box. Support is currently under development.
     
     https://github.com/spring-cloud/spring-cloud-config/pull/1017 
  
