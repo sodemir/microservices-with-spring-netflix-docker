@@ -84,9 +84,9 @@ _note : All project pom files include docker maven plugin developed by spotify, 
   
 **Missing**  
 
- - eureka multiple çalışacak hale getirilecek. birbirlerini görüp replike olsunlar.
-   config server portları statik olacak, o yüzden compose.yml içine 2 tane aynı servisten koyulacak.
-   çünkü onu discover edemeyiz, onun portları sabit olmalı
+- Can't run multiple Config Servers. As of now, it is not supported in Spring Cloud out-of-box. Support is currently under development.
+    
+    https://github.com/spring-cloud/spring-cloud-config/pull/1017 
  
  - not tested : multiple forex servers should be notified of config changes
  - automate whole process :
