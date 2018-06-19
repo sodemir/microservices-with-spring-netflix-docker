@@ -11,16 +11,21 @@ spring:
         git:
           uri: https://github.com/sodemir/microservices-with-spring-netflix-docker
           searchPaths : config-repository
+  rabbitmq:
+    host: rabbitmq
+    port: 5672
+    username: guest
+    password: guest
 #        native:
 #          searchLocations: classpath:config-repo/
 
 
 #rabbit-mq, used by cloud bus for auto refresh
-rabbitmq:
-   host: rabbitmq
-   port: 5672
-   username: guest
-   password: guest
+#rabbitmq:
+#   host: rabbitmq
+#   port: 5672
+#   username: guest
+#   password: guest
 
 
 #actuators

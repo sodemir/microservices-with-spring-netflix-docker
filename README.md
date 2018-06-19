@@ -20,9 +20,9 @@ There are **5 microservices** included in this project:
     
  3. In the root folder, run 
  
-        docker-compose up --scale configserver=2 eureka=2
+        docker-compose up
         
-    This should create and run 2 config-server, 2 eureka and 1 rabbitmq containers.
+    This should create and run 1 config-server, 2 eureka and 1 rabbitmq containers.
   
  4. Find out config-server and eureka ports exposed by docker containers 
  
