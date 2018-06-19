@@ -78,7 +78,7 @@ There are **5 microservices** included in this project:
 
 All services have seperate docker files, in the root folder. They are being used by docker-compose. If you want to change anything with the images, you can edit them.
 
-docker-compose.yml is in the project root folder too, if you can want to make changes on it. 
+docker-compose.yml is in the project root folder too, if you want to make changes on it. 
 
 _note : All project pom files include docker maven plugin developed by spotify, configured to create images for each microservice. But you don't have to use it._ 
   
