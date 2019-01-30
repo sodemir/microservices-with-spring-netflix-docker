@@ -1,14 +1,14 @@
 # microservices-with-spring-netflix-docker
 
-Template project demonstrating microservices arhictecture with spring boot, spring cloud, eureka, zuul, spring config server, hystrix, ribbon, feign and docker. 
+Template project demonstrating microservices architecture with spring boot, spring cloud, eureka, zuul, spring config server, hystrix, ribbon, feign and docker. 
 
 There are **5 microservices** included in this project:
 
  1. Forex Service - Returns the exchange values between monetary units. See forex/readme.md for further details.
  2. Currency Converter Service - Returns the conversion amount between two monetary units. Calls Forex Service to get the exchange value. See currency-converter/readme.md for further details.  
- 3. Spring Cloud Config Server - Being used to centralize the configuration of Forex and Currency-Converter services. See config-server/readme.md for further details.
+ 3. Spring Cloud Config Server - Used to centralize the configuration of Forex and Currency-Converter services. See config-server/readme.md for further details.
    _config-repository_ folder is for keeping configuration files of these two microservices.  
- 4. Eureka Server - Being used as service registry. (The config server keeps the url of eureka, other services see eureka through config server, not vice versa. So, config-server urls are hardcoded)
+ 4. Eureka Server - Used as service registry. (The config server keeps the url of eureka, other services see eureka through config server, not vice versa. So, config-server urls are hardcoded)
  5. Zuul - Gateway service
 
 **How to install and run**
